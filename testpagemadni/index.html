@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello From Madni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello From Madni</h1>
+        <button id="logButton">Log Visitor</button>
+    </div>
+    <script>
+        document.getElementById('logButton').addEventListener('click', () => {
+            fetch('/.netlify/functions/logVisitor')
+                .then(response => response.json())
+                .then(data => console.log(data.message))
+                .catch(err => console.error('Error:', err));
+        });
+    </script>
+</body>
+</html>
